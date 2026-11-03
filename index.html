@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ANATOMIAFS — media pembelajaran IPAS tentang sistem saraf dan sistem gerak manusia.">
+  <title>ANATOMIAFS — Explore the Human Body</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#182b3b;--muted:#6e7d89;--blue:#397ca7;--blue-dark:#245b7e;--pale:#edf4f8;--red:#e96b68;--line:#e3eaf0;--white:#fff;--font:'DM Sans',sans-serif;--display:'Manrope',sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.topbar{height:82px;padding:0 max(calc((100% - 1160px)/2),6%);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #edf0f3;background:rgba(255,255,255,.94);position:sticky;top:0;z-index:20;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:10px;font:800 16px var(--display);letter-spacing:-.7px;line-height:1;color:var(--ink)}
+.brand-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:var(--blue);color:#fff;font-size:25px;font-weight:400}
+.brand-light{font-weight:500;color:var(--blue)}
+.brand small{display:block;font:700 8px var(--font);letter-spacing:2.8px;color:#8796a2;margin-top:5px}
+nav{display:flex;align-items:center;gap:32px}.nav-link{font-size:12px;font-weight:600;color:#71808c;transition:.2s}.nav-link:hover,.nav-link.active{color:var(--blue-dark)}.nav-quiz{padding:11px 16px;background:var(--pale);border-radius:7px;color:var(--blue-dark)}.nav-quiz span{margin-left:9px}.menu-toggle{display:none;border:0;background:none;font-size:24px;color:var(--ink)}
+.section{max-width:1160px;margin:auto;padding-left:6%;padding-right:6%}
+.hero{min-height:600px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;padding-top:65px;padding-bottom:70px}
+.eyebrow{font-size:10px;letter-spacing:2px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:9px}.pulse{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px #fbe9e8}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-1.5px;line-height:1.16}
+h1{font-size:clamp(43px,5.3vw,66px);font-weight:800;margin:22px 0 18px}h1 span,h2 span{color:var(--blue)}
+.hero-desc{max-width:450px;color:var(--muted);font-size:14px;line-height:1.9}
+.hero-actions{display:flex;align-items:center;gap:22px;margin-top:30px}.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:23px;padding:14px 19px;border-radius:6px;font:700 12px var(--font);cursor:pointer;transition:.2s}.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px #397ca729}.btn-primary:hover{background:var(--blue-dark);transform:translateY(-2px)}.btn-quiet{color:var(--ink);padding-left:0}.btn-quiet span{color:var(--blue)}
+.hero-meta{font-size:10px;color:#84919b;margin-top:39px;letter-spacing:.2px}.meta-icon{color:var(--blue);margin-right:7px}
+.hero-art{height:470px;position:relative;display:grid;place-items:center}.orbit{position:absolute;border:1px solid #dce8ef;border-radius:50%;width:390px;height:390px}.orbit-two{width:460px;height:460px;border-style:dashed;opacity:.7}
+.human-card{width:310px;height:420px;background:linear-gradient(145deg,#f1f6f9,#e7f0f5);border-radius:155px 155px 20px 20px;position:relative;display:flex;justify-content:center;align-items:center;box-shadow:0 25px 65px #34566b18;overflow:hidden}
+.human-figure{height:355px;width:245px;z-index:1}.human-label{position:absolute;z-index:2;font-size:8px;letter-spacing:1.2px;font-weight:700;color:var(--blue-dark);display:flex;align-items:center;gap:7px}.human-label i{width:6px;height:6px;border-radius:50%;background:var(--red)}.label-brain{top:75px;left:20px}.label-muscle{bottom:85px;right:12px}.art-caption{position:absolute;bottom:22px;font-size:9px;color:#718797;letter-spacing:.3px}
+.float-chip{position:absolute;background:#fff;border:1px solid #e8eef2;padding:11px 14px;border-radius:7px;font-size:9px;font-weight:600;color:#607482;box-shadow:0 9px 30px #243f5012;z-index:3}.float-chip span{color:var(--red);font-weight:800;margin-right:7px}.chip-top{top:64px;right:-8px}.chip-bottom{bottom:67px;left:-22px}
+.intro-strip{background:#f5f8fa;display:flex;justify-content:center;gap:100px;padding:23px 5%;border-top:1px solid #edf1f4;border-bottom:1px solid #edf1f4}.intro-strip>div{display:flex;align-items:center;gap:13px}.strip-number{font:800 21px var(--display);color:#b4cbd9}.intro-strip b,.intro-strip small{display:block}.intro-strip b{font-size:11px}.intro-strip small{font-size:9px;color:#8a98a2}
+.content-section{padding-top:105px;padding-bottom:105px}.section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:45px}.section-heading h2,.quiz-heading h2{font-size:clamp(34px,4vw,48px);margin-top:15px}.section-heading>p{max-width:360px;color:var(--muted);font-size:12px;line-height:1.9;padding-bottom:5px}
+.nervous-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}.nervous-visual{min-height:340px;background:#eaf2f7;border-radius:12px;position:relative;overflow:hidden;display:grid;place-items:center}.visual-tag{position:absolute;top:23px;left:25px;font-size:9px;letter-spacing:2px;font-weight:700;color:#6e8ba0}.brain-illustration{font-size:125px;filter:drop-shadow(0 15px 12px #577a9325);z-index:1}.neuron-line{position:absolute;border:1px solid #b7cfde;border-radius:50%;width:230px;height:230px}.line-b{width:290px;height:290px;border-style:dashed}.visual-note{position:absolute;bottom:22px;left:24px;font-size:9px;color:#6f8798}.note-dot{display:inline-block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-right:7px}
+.info-list{display:flex;flex-direction:column;gap:12px}.info-card{flex:1;display:flex;align-items:center;gap:18px;border:1px solid var(--line);border-radius:9px;padding:19px 20px;transition:.2s}.info-card:hover{border-color:#b7d0df;transform:translateX(3px)}.info-index{font:800 14px var(--display);color:#9cb7c8}.info-card h3{font-size:17px;letter-spacing:-.5px;margin-bottom:5px}.info-card p{font-size:11px;color:var(--muted)}.info-symbol{margin-left:auto;font-size:25px;color:var(--blue);padding-left:8px}
+.fact-banner{margin-top:22px;padding:17px 20px;background:#f4f8fa;border-radius:8px;display:flex;align-items:center;gap:13px}.fact-icon{width:22px;height:22px;border:1px solid #9bb9ca;border-radius:50%;display:grid;place-items:center;color:var(--blue);font:700 12px serif;flex-shrink:0}.fact-banner p{font-size:11px;color:#657783}.fact-banner b{color:var(--ink)}
+.movement-section{background:#f5f8fa}.section-inner{padding-top:100px;padding-bottom:100px}.movement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.movement-card{background:#fff;border:1px solid #e8eef2;border-radius:10px;overflow:hidden;transition:.2s}.movement-card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #243f5010}.movement-art{height:185px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.movement-art:before,.movement-art:after{content:"";position:absolute;border:1px solid #ffffff80;border-radius:50%;width:160px;height:160px}.movement-art:after{width:210px;height:210px;border-style:dashed}.movement-art span{font-size:68px;z-index:1;color:#fff;text-shadow:0 5px 15px #1c40542a}.movement-art small{font-size:8px;letter-spacing:2px;color:#ffffffc9;z-index:1}.bone-art{background:linear-gradient(135deg,#8caec3,#b6cbd8)}.joint-art{background:linear-gradient(135deg,#729ab5,#9ab9cb)}.muscle-art{background:linear-gradient(135deg,#d77c79,#efaaa0)}.movement-text{padding:22px 23px 25px}.card-kicker{font-size:8px;letter-spacing:1.6px;font-weight:700;color:var(--blue)}.movement-text h3{font-size:22px;margin:9px 0}.movement-text p{font-size:11px;color:var(--muted);min-height:38px}
+.process-panel{border:1px solid var(--line);border-radius:11px;padding:27px 28px 30px}.process-top{display:flex;justify-content:space-between;align-items:center}.process-top h3{font-size:22px;margin-top:7px}.process-badge{font-size:8px;letter-spacing:1px;font-weight:700;color:var(--blue);background:var(--pale);padding:8px 11px;border-radius:4px}.process-flow{display:grid;grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr;gap:10px;align-items:center;margin-top:35px}.process-step{text-align:center}.step-icon{width:53px;height:53px;margin:0 auto 12px;display:grid;place-items:center;border-radius:15px;background:#edf4f8;color:var(--blue);font-size:22px}.process-step:nth-of-type(7) .step-icon{background:#fceeed;color:var(--red)}.step-no{font-size:8px;font-weight:700;letter-spacing:1px;color:#9aabb6}.process-step h4{font-size:13px;letter-spacing:-.3px;margin:5px 0}.process-step p{font-size:9px;line-height:1.6;color:var(--muted)}.flow-arrow{color:#a4bac8;text-align:center;font-size:18px}
+.response-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.response-card{border:1px solid var(--line);border-radius:10px;padding:23px 25px}.response-label{font-size:8px;letter-spacing:1.6px;font-weight:700;color:var(--blue)}.response-icon{font-size:31px;margin:14px 0 5px;color:var(--blue)}.reflex .response-icon{color:var(--red)}.response-card h3{font-size:20px;margin-bottom:8px}.response-card>p{font-size:11px;color:var(--muted);line-height:1.8;min-height:58px}.example{border-top:1px solid var(--line);padding-top:13px;margin-top:15px}.example b,.example span{display:block}.example b{font-size:9px;color:var(--blue);margin-bottom:4px}.example span{font-size:10px;color:#667782}.safety-note{display:flex;align-items:center;gap:12px;background:#fff8f2;border:1px solid #f4e7d9;padding:13px 16px;border-radius:7px;margin-top:20px}.safety-note>span{width:19px;height:19px;display:grid;place-items:center;background:#f4e3d1;color:#a86b36;border-radius:50%;font-weight:800;font-size:11px;flex-shrink:0}.safety-note p{font-size:10px;color:#826f5d}
+.quiz-section{background:#18374d;color:#fff;padding:90px 0}.quiz-inner{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px;align-items:center}.quiz-heading .eyebrow{color:#9fc4d9}.quiz-heading h2{color:#fff}.quiz-heading h2 span{color:#9bc6df}.quiz-heading p{font-size:12px;color:#b5c7d2;max-width:270px;margin-top:17px;line-height:1.8}
+.quiz-box,.quiz-result{background:#fff;color:var(--ink);padding:29px 30px;border-radius:11px;box-shadow:0 20px 55px #081e2d30}.quiz-progress{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:8px;letter-spacing:1px;font-weight:700;color:#83939e}.progress-track{height:4px;background:#eaf0f3;width:42%;border-radius:9px;overflow:hidden}.progress-track span{display:block;height:100%;width:20%;background:var(--blue);transition:width .3s}.quiz-box h3{font-size:20px;letter-spacing:-.6px;margin:27px 0 19px}.answer-list{display:grid;gap:9px}.answer-option{width:100%;border:1px solid #e5ebef;background:#fff;border-radius:6px;text-align:left;padding:12px 14px;font:500 11px var(--font);color:#526571;cursor:pointer;transition:.15s}.answer-option:hover:not(:disabled){border-color:#9dbdce;background:#f7fafc}.answer-option.selected{border-color:var(--blue);background:#eef5f9;color:var(--blue-dark)}.answer-option.correct{border-color:#7db99b;background:#eff8f2;color:#286a47}.answer-option.wrong{border-color:#e5a09d;background:#fff3f2;color:#a74845}.quiz-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:20px}.quiz-bottom #feedback{font-size:9px;color:#8a98a2}.quiz-bottom .btn{padding:12px 15px;gap:12px;font-size:10px}.quiz-bottom .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.quiz-result{text-align:center;padding:45px 30px}.quiz-result[hidden]{display:none}.result-icon{width:55px;height:55px;display:grid;place-items:center;border-radius:50%;background:#eaf5ee;color:#3c9162;font-size:27px;margin:0 auto 17px}.quiz-result .eyebrow{justify-content:center}.quiz-result h3{font-size:28px;margin:12px 0}.quiz-result p{font-size:12px;color:var(--muted);margin-bottom:23px}
+footer{min-height:95px;padding:25px max(calc((100% - 1160px)/2),6%);display:flex;align-items:center;justify-content:space-between;gap:20px}footer p,footer .back-top{font-size:9px;color:#84929c}.footer-brand{transform:scale(.88);transform-origin:left center}.back-top{color:var(--blue)!important;font-weight:700}
+@media(max-width:800px){.topbar{height:70px;padding:0 5%}.menu-toggle{display:block}nav{display:none;position:absolute;top:69px;left:0;right:0;background:#fff;padding:18px 6%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}nav.open{display:flex}.hero{grid-template-columns:1fr;gap:5px;padding-top:60px}.hero-copy{max-width:600px}.hero-art{height:420px}.chip-top{right:5%}.chip-bottom{left:4%}.intro-strip{gap:30px}.section-heading{align-items:flex-start;flex-direction:column;gap:15px}.section-heading>p{max-width:520px}.quiz-inner{grid-template-columns:1fr;gap:35px}.quiz-heading p{max-width:450px}.quiz-section{padding:70px 0}}
+@media(max-width:560px){.hero{padding-top:48px}.hero-art{height:365px;transform:scale(.9);margin:-5px -20px}.human-card{height:370px;width:275px}.human-figure{height:315px}.orbit{width:320px;height:320px}.orbit-two{width:370px;height:370px}.chip-top{top:28px}.chip-bottom{bottom:36px}.intro-strip{justify-content:space-around;gap:10px;padding:18px 4%}.intro-strip>div{gap:7px}.strip-number{font-size:17px}.intro-strip small{font-size:8px}.intro-strip b{font-size:9px}.content-section,.section-inner{padding-top:72px;padding-bottom:72px}.nervous-layout{grid-template-columns:1fr}.nervous-visual{min-height:260px}.brain-illustration{font-size:100px}.movement-grid{grid-template-columns:1fr;gap:13px}.movement-card{display:grid;grid-template-columns:38% 1fr}.movement-art{height:155px}.movement-art span{font-size:48px}.movement-text{padding:18px 16px;align-self:center}.movement-text h3{font-size:19px}.movement-text p{min-height:0}.process-panel{padding:21px 15px}.process-flow{grid-template-columns:1fr 13px 1fr;row-gap:26px;column-gap:5px}.process-step:nth-of-type(5){grid-column:1}.process-step:nth-of-type(7){grid-column:3}.flow-arrow:nth-of-type(6){display:none}.process-step p{font-size:8px}.response-grid{grid-template-columns:1fr}.response-card>p{min-height:0}.quiz-section{padding:65px 0}.quiz-box{padding:23px 18px}.quiz-box h3{font-size:18px}.quiz-bottom{align-items:flex-start;flex-direction:column}.quiz-bottom .btn{align-self:flex-end}footer{flex-wrap:wrap;padding:22px 6%}footer p{order:3;width:100%}}
+
+
+/* ANATOMIAFS — penyederhanaan visual */
+:root {
+  --ink: #1c2b3a;
+  --muted: #718091;
+  --blue: #397ca7;
+  --blue-dark: #245b7e;
+  --pale: #f1f6f9;
+  --red: #e96b68;
+  --line: #e7edf2;
+}
+body { background: #fff; }
+.topbar { height: 68px; padding-inline: max(calc((100% - 1320px)/2), 4%); }
+.section { max-width: 1440px; padding-left: 4%; padding-right: 4%; }
+.hero { min-height: 540px; padding-top: 48px; padding-bottom: 52px; }
+.orbit-two { display: none; }
+.human-card { box-shadow: 0 14px 40px #34566b10; }
+.intro-strip { gap: clamp(24px, 8vw, 100px); background: #fafcfd; }
+.content-section { padding-top: 82px; padding-bottom: 82px; }
+.info-card { border-radius: 7px; box-shadow: none; }
+.info-card:hover { transform: translateY(-2px); box-shadow: 0 7px 18px #243f5009; }
+.fact-banner { background: #f8fafb; }
+.movement-section { background: #fafcfd; }
+.movement-card { border-radius: 7px; }
+.movement-card:hover { transform: translateY(-3px); box-shadow: 0 9px 22px #243f500b; }
+.movement-art:after { display: none; }
+.process-panel, .response-card { border-radius: 8px; }
+.quiz-section {
+  background: #f7fafc;
+  color: var(--ink);
+  padding: 78px 0;
+  border-top: 1px solid #edf1f4;
+}
+.quiz-inner { grid-template-columns: .72fr 1.28fr; gap: clamp(28px, 5vw, 64px); }
+.quiz-heading .eyebrow { color: var(--blue); }
+.quiz-heading h2 { color: var(--ink); }
+.quiz-heading h2 span { color: var(--blue); }
+.quiz-heading p { color: var(--muted); }
+.quiz-box, .quiz-result {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: none;
+  padding: 27px;
+}
+.quiz-progress {
+  display: grid;
+  grid-template-columns: auto auto minmax(65px, 1fr);
+  gap: 14px;
+  letter-spacing: .04em;
+  color: #758596;
+}
+.progress-track { width: 100%; background: #edf1f4; }
+.progress-track span { background: var(--blue); }
+.quiz-box h3 { font-size: 19px; line-height: 1.45; margin: 23px 0 17px; }
+.answer-list { gap: 8px; }
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 13px;
+  border-radius: 7px;
+  color: #405366;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.answer-option::first-letter { font-weight: 700; }
+.answer-option:hover:not(:disabled) { background: #f7fafc; border-color: #b7cbd9; }
+.answer-option.correct { background: #f1f8f3; border-color: #9ac7aa; color: #286a47; }
+.answer-option.wrong { background: #fff5f4; border-color: #e5aaa6; color: #a74845; }
+.quiz-bottom { border-top: 1px solid #edf1f4; padding-top: 16px; margin-top: 17px; }
+.quiz-bottom #feedback { line-height: 1.6; max-width: 72%; }
+.quiz-bottom .btn { border-radius: 6px; box-shadow: none; }
+.quiz-result { min-height: 290px; }
+.result-icon { background: #f0f6f2; }
+footer { padding-inline: max(calc((100% - 1320px)/2), 4%); }
+.brand small { letter-spacing: 1.6px; }
+@media(max-width:800px) {
+  .topbar { padding-inline: 5%; }
+  .quiz-inner { grid-template-columns: 1fr; gap: 25px; }
+  .quiz-heading p { max-width: 500px; }
+  .quiz-section { padding: 64px 0; }
+}
+@media(max-width:560px) {
+  .content-section { padding-top: 65px; padding-bottom: 65px; }
+  .quiz-box, .quiz-result { padding: 20px 16px; }
+  .quiz-progress { grid-template-columns: auto auto; }
+  .progress-track { grid-column: 1 / -1; }
+  .quiz-bottom { flex-direction: column; }
+  .quiz-bottom #feedback { max-width: 100%; }
+  .quiz-bottom .btn { align-self: flex-end; }
+}
+
+
+
+/* ===== REDESAIN: NEUROPOP / PLUM + CITRUS ===== */
+:root{
+  --ink:#25152f;
+  --muted:#796b82;
+  --blue:#7650c8;
+  --blue-dark:#4e2b91;
+  --pale:#f0eafa;
+  --red:#f08a52;
+  --line:#e8def0;
+  --white:#fffdfb;
+  --font:'DM Sans',sans-serif;
+  --display:'Manrope',sans-serif;
+}
+body{
+  color:var(--ink);
+  background:#fffaf5;
+  background-image:radial-gradient(ellipse at 8% 8%,#f2e8ff 0,transparent 30%),
+                   radial-gradient(ellipse at 92% 32%,#fff0df 0,transparent 28%);
+}
+.topbar{
+  height:78px;
+  background:rgba(255,250,245,.88);
+  border-bottom:1px solid #eadff0;
+  box-shadow:0 8px 30px #3820440a;
+}
+.brand-mark{
+  border-radius:13px 13px 13px 4px;
+  background:linear-gradient(145deg,#8c62dc,#56329e);
+  box-shadow:0 7px 16px #7650c833;
+}
+.brand-light{color:#7650c8}
+.brand small{color:#a08ca9}
+.nav-link{color:#887991}
+.nav-link:hover,.nav-link.active{color:#5b369f}
+.nav-quiz{
+  color:#fff;
+  background:linear-gradient(110deg,#7650c8,#a16ad6);
+  border-radius:999px;
+  padding:11px 19px;
+  box-shadow:0 7px 18px #7650c82b;
+}
+.hero{
+  min-height:625px;
+  padding-top:72px;
+  padding-bottom:78px;
+}
+.eyebrow{color:#7951c4}
+.pulse{
+  background:#f08a52;
+  box-shadow:0 0 0 5px #ffeadc;
+}
+h1{font-size:clamp(46px,5.6vw,72px);letter-spacing:-2.8px}
+h1 span,h2 span{
+  color:transparent;
+  background:linear-gradient(100deg,#7650c8 8%,#d36e9c 58%,#f08a52 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.hero-desc{font-size:14px;color:#796b82}
+.btn{border-radius:999px;padding:15px 22px}
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(110deg,#7650c8,#a16ad6 65%,#c06fbd);
+  box-shadow:0 10px 24px #7650c83d;
+}
+.btn-primary:hover{background:linear-gradient(110deg,#56329e,#8c55c8);box-shadow:0 13px 26px #7650c84a}
+.btn-quiet span,.meta-icon{color:#f08a52}
+.hero-art{height:500px}
+.orbit{border-color:#d8c7ed}
+.orbit-one{border-style:dotted;border-width:2px}
+.orbit-two{display:block;border-color:#f3cdb8;opacity:.75}
+.human-card{
+  width:320px;height:430px;
+  background:linear-gradient(150deg,#f0e6ff 0%,#fce9e0 100%);
+  border-radius:48% 48% 24px 24px;
+  box-shadow:0 28px 65px #58337b20;
+}
+.human-card:before{
+  content:"";
+  position:absolute;width:240px;height:240px;border-radius:50%;
+  background:linear-gradient(145deg,#ffffffa8,#ffffff00);
+  top:45px;left:40px;
+}
+.human-label{color:#5b369f}
+.human-label i{background:#f08a52}
+.float-chip{
+  border:1px solid #eadff0;
+  border-radius:14px;
+  box-shadow:0 12px 32px #3a234514;
+  color:#5e4c69;
+}
+.float-chip span{color:#e47746}
+.chip-top{right:-18px}
+.chip-bottom{left:-30px}
+.intro-strip{
+  background:linear-gradient(100deg,#f1eafa,#fff0e4);
+  border-color:#eadff0;
+}
+.strip-number{color:#a78bd8}
+.content-section{padding-top:110px;padding-bottom:110px}
+.section-heading h2,.quiz-heading h2{letter-spacing:-2px}
+.nervous-visual{
+  background:linear-gradient(145deg,#e9ddfa,#fbe8dc);
+  border-radius:22px;
+}
+.visual-tag{color:#7650c8}
+.neuron-line{border-color:#c4a9e6}
+.visual-note{color:#725d80}
+.note-dot{background:#f08a52}
+.info-card{
+  border:1px solid #eadff0;
+  border-radius:15px;
+  background:#fffdfb;
+  padding:21px 22px;
+}
+.info-card:hover{border-color:#c8b2e6;transform:translateY(-3px);box-shadow:0 12px 25px #4c2d6810}
+.info-index{color:#a78bd8}
+.info-symbol{color:#7650c8}
+.fact-banner{
+  background:#fff0e5;
+  border:1px solid #f7dfcf;
+  border-radius:13px;
+}
+.fact-icon{border-color:#e5a47e;color:#d87545}
+.fact-banner p{color:#765f6d}
+.movement-section{
+  background:linear-gradient(135deg,#2d1b3c 0%,#42265d 58%,#59366c 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.movement-section:before{
+  content:"";
+  position:absolute;width:460px;height:460px;border:1px solid #ffffff18;
+  border-radius:50%;right:-130px;top:-210px;
+  box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff05;
+}
+.movement-section .section-inner{position:relative;z-index:1}
+.movement-section .eyebrow,.movement-section .card-kicker{color:#d5b8ff}
+.movement-section .section-heading h2{color:#fff}
+.movement-section .section-heading h2 span{
+  background:linear-gradient(90deg,#d9baff,#ffb78c);
+  -webkit-background-clip:text;background-clip:text;
+}
+.movement-section .section-heading>p{color:#d5c8de}
+.movement-card{
+  border:1px solid #ffffff24;
+  border-radius:18px;
+  background:#ffffff0d;
+  box-shadow:0 15px 35px #170d241c;
+  backdrop-filter:blur(8px);
+}
+.movement-card:hover{transform:translateY(-7px);box-shadow:0 22px 40px #170d2438}
+.movement-art{height:200px}
+.bone-art{background:linear-gradient(135deg,#7650c8,#a98be0)}
+.joint-art{background:linear-gradient(135deg,#c06fbd,#e69bc0)}
+.muscle-art{background:linear-gradient(135deg,#e47746,#f3ad75)}
+.movement-art:before,.movement-art:after{border-color:#ffffff55}
+.movement-text{padding:24px}
+.movement-text h3{color:#fff}
+.movement-text p{color:#d9cde1}
+.process-panel{
+  border:1px solid #e8def0;
+  border-radius:20px;
+  padding:32px;
+  background:#fffdfb;
+  box-shadow:0 15px 45px #4424540a;
+}
+.process-badge{
+  color:#6842ad;background:#f0eafa;border-radius:999px;
+}
+.step-icon{
+  border-radius:17px;
+  background:linear-gradient(145deg,#eee5fb,#f9e9e1);
+  color:#7650c8;
+}
+.process-step:nth-of-type(7) .step-icon{background:#fff0e5;color:#e47746}
+.flow-arrow{color:#b69bd9}
+.response-card{
+  border:1px solid #e8def0;
+  border-radius:17px;
+  background:#fffdfb;
+  padding:26px;
+  box-shadow:0 12px 30px #44245408;
+}
+.response-label,.response-icon{color:#7650c8}
+.reflex .response-icon{color:#e47746}
+.example b{color:#7650c8}
+.safety-note{
+  background:#fff1e7;
+  border-color:#f4ddcc;
+  border-radius:12px;
+}
+.safety-note>span{background:#f8ddc9;color:#b45d32}
+.quiz-section{
+  color:#fff;
+  background:linear-gradient(120deg,#291837 0%,#493064 55%,#7650a5 100%);
+  border:0;
+  padding:100px 0;
+  position:relative;
+  overflow:hidden;
+}
+.quiz-section:after{
+  content:"";
+  position:absolute;width:430px;height:430px;border:1px solid #ffffff20;
+  border-radius:50%;left:-220px;bottom:-290px;
+  box-shadow:0 0 0 50px #ffffff08,0 0 0 100px #ffffff05;
+}
+.quiz-inner{position:relative;z-index:1}
+.quiz-heading .eyebrow{color:#e1c9ff}
+.quiz-heading h2{color:#fff}
+.quiz-heading h2 span{
+  background:linear-gradient(90deg,#e0c8ff,#ffc49e);
+  -webkit-background-clip:text;background-clip:text;
+}
+.quiz-heading p{color:#dfd1e8}
+.quiz-box,.quiz-result{
+  border:1px solid #ffffff40;
+  border-radius:20px;
+  box-shadow:0 25px 65px #160d223d;
+  padding:32px;
+}
+.progress-track{background:#eee7f3;border-radius:99px}
+.progress-track span{background:linear-gradient(90deg,#7650c8,#e28caa,#f08a52)}
+.answer-option{
+  border:1px solid #e9e0ee;
+  border-radius:11px;
+  padding:14px 16px;
+  color:#594b63;
+}
+.answer-option:hover:not(:disabled){background:#f8f3fc;border-color:#bda4df}
+.answer-option.selected{border-color:#7650c8;background:#f2ebfb;color:#56329e}
+.answer-option.correct{border-color:#8bc3a0;background:#eff8f1;color:#286a47}
+.answer-option.wrong{border-color:#e5a09d;background:#fff1ef;color:#a74845}
+.quiz-bottom{border-color:#eee7f1}
+.quiz-bottom .btn{border-radius:999px}
+.result-icon{background:#eff8f1;color:#3c9162}
+footer{
+  background:#21142c;
+  color:#fff;
+  padding-top:30px;padding-bottom:30px;
+}
+footer p{color:#c6b8cf}
+footer .brand{color:#fff}
+footer .brand small{color:#b7a5c4}
+footer .brand-mark{background:linear-gradient(145deg,#8c62dc,#56329e)}
+.back-top{color:#e3caff!important}
+@media(max-width:800px){
+  .topbar{background:rgba(255,250,245,.96)}
+  nav{background:#fffaf5;border-color:#eadff0}
+  .hero{padding-top:55px}
+  .chip-top{right:3%}
+  .chip-bottom{left:2%}
+}
+@media(max-width:560px){
+  .hero-art{transform:scale(.88);margin:-8px -25px}
+  .human-card{width:275px;height:370px}
+  .orbit{width:320px;height:320px}
+  .orbit-two{width:370px;height:370px}
+  .movement-grid{gap:15px}
+  .movement-card{border-radius:14px}
+  .process-panel{padding:22px 15px}
+  .quiz-box,.quiz-result{padding:23px 18px}
+}
+
+
+
+/* ===== LAYOUT RESET: ANATOMY ATLAS EDITION ===== */
+body{background:#fffaf5}
+.topbar{position:sticky;top:0}
+.hero.section{
+  max-width:none;
+  width:calc(100% - 64px);
+  margin:28px auto 42px;
+  padding:54px clamp(28px,6vw,92px);
+  min-height:610px;
+  grid-template-columns:.92fr 1.08fr;
+  gap:5vw;
+  background:linear-gradient(125deg,#241531 0%,#3d2455 54%,#65427b 100%);
+  border-radius:30px;
+  color:#fff;
+  overflow:hidden;
+  position:relative;
+  isolation:isolate;
+}
+.hero.section:before{
+  content:"";
+  position:absolute;z-index:-1;
+  width:560px;height:560px;border-radius:50%;
+  border:1px solid #ffffff22;
+  right:-110px;top:-250px;
+  box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff05,0 0 0 150px #ffffff04;
+}
+.hero.section:after{
+  content:"ANATOMY / 01";
+  position:absolute;right:35px;bottom:24px;
+  color:#ffffff60;font-size:9px;letter-spacing:3px;font-weight:700;
+}
+.hero-copy{order:2;position:relative;z-index:2;padding:20px 0}
+.hero-art{order:1;height:490px}
+.hero .eyebrow{color:#e2caff}
+.hero .pulse{background:#ffad7b;box-shadow:0 0 0 5px #ffffff18}
+.hero h1{color:#fff;font-size:clamp(43px,5.1vw,68px);line-height:1.08}
+.hero h1 span{
+  background:linear-gradient(90deg,#e2caff,#ffb58e);
+  -webkit-background-clip:text;background-clip:text;
+}
+.hero-desc{color:#e0d3e8;max-width:470px}
+.hero-meta{color:#c7b5d1}
+.hero .btn-quiet{color:#fff}
+.hero .btn-quiet span{color:#ffb58e}
+.human-card{
+  width:min(360px,78%);
+  height:450px;
+  border-radius:180px 180px 32px 32px;
+  background:linear-gradient(155deg,#f4e8ff,#f9d9c9);
+  box-shadow:0 25px 65px #12091d55;
+}
+.human-figure{width:270px;height:390px}
+.anatomy-figure{width:285px;height:400px;overflow:visible}
+.human-label{font-size:8px}
+.chip-top{right:-35px;top:48px}
+.chip-bottom{left:-40px;bottom:42px}
+.orbit{border-color:#ffffff35}
+.orbit-two{border-color:#f7c8a855}
+.intro-strip{
+  width:calc(100% - 64px);margin:0 auto;
+  padding:0;gap:14px;
+  background:transparent;border:0;
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.intro-strip>div{
+  background:#fff;border:1px solid #eadff0;border-radius:17px;
+  padding:20px 24px;justify-content:flex-start;
+  box-shadow:0 10px 25px #39234809;
+}
+.strip-number{font-size:28px;color:#b79bdf}
+.content-section.section{max-width:1320px}
+#saraf .section-heading{
+  display:grid;grid-template-columns:1fr .65fr;align-items:end;
+  border-bottom:1px solid #eadff0;padding-bottom:28px;
+}
+#saraf .nervous-layout{grid-template-columns:1.12fr .88fr;gap:42px}
+#saraf .nervous-visual{order:2;min-height:430px;border-radius:28px}
+#saraf .info-list{order:1;justify-content:center}
+#saraf .info-card{min-height:105px}
+#saraf .brain-illustration{font-size:150px}
+#saraf .fact-banner{max-width:720px;margin-left:auto}
+.movement-section .section-inner{max-width:1320px}
+.movement-section .section-heading{
+  display:block;max-width:680px;margin-bottom:55px
+}
+.movement-section .section-heading>p{margin-top:18px;max-width:510px}
+.movement-grid{grid-template-columns:1.15fr .9fr .9fr;gap:18px}
+.movement-card{display:flex;flex-direction:column}
+.movement-card:first-child{transform:translateY(-14px)}
+.movement-card:first-child .movement-art{height:245px}
+.movement-art{height:190px}
+.movement-text{min-height:165px}
+#hubungan .section-heading{
+  display:flex;flex-direction:column;align-items:flex-start;
+  border-left:5px solid #8c62dc;padding-left:28px;margin-bottom:42px
+}
+#hubungan .section-heading>p{max-width:600px}
+.process-panel{padding:36px;border-radius:24px}
+.process-flow{
+  display:flex;flex-direction:column;align-items:stretch;gap:0;
+  margin-top:25px;max-width:780px
+}
+.process-step{
+  display:grid;grid-template-columns:62px 48px 150px 1fr;
+  align-items:center;text-align:left;gap:16px;
+  padding:14px 0;border-bottom:1px solid #eee6f2
+}
+.process-step .step-icon{margin:0;width:52px;height:52px}
+.process-step h4{margin:0;font-size:15px}
+.process-step p{font-size:11px}
+.process-step .step-no{font-size:9px}
+.flow-arrow{display:none}
+.response-grid{grid-template-columns:1.2fr .8fr;align-items:stretch;gap:20px}
+.response-card{padding:30px}
+.response-card:first-child{background:linear-gradient(145deg,#f3ecfc,#fff)}
+.response-card:last-child{background:linear-gradient(145deg,#fff0e5,#fff)}
+.quiz-section{padding:100px 0}
+.quiz-inner{grid-template-columns:.8fr 1.2fr}
+.quiz-heading{position:sticky;top:120px;align-self:center}
+.quiz-box,.quiz-result{border-radius:24px}
+footer{margin-top:0}
+@media(max-width:800px){
+  .hero.section{width:calc(100% - 28px);margin:14px auto 28px;padding:38px 25px;grid-template-columns:1fr;gap:0;border-radius:22px}
+  .hero-copy{order:1;padding:10px 0 0}
+  .hero-art{order:2;height:390px}
+  .hero.section:after{right:20px;bottom:14px}
+  .intro-strip{width:calc(100% - 28px);grid-template-columns:1fr;gap:9px}
+  .intro-strip>div{padding:13px 18px}
+  #saraf .section-heading{grid-template-columns:1fr;gap:14px}
+  #saraf .nervous-layout{grid-template-columns:1fr;gap:20px}
+  #saraf .nervous-visual{order:1;min-height:310px}
+  #saraf .info-list{order:2}
+  #saraf .fact-banner{margin-left:0}
+  .movement-grid{grid-template-columns:1fr 1fr}
+  .movement-card:first-child{transform:none}
+  .movement-card:first-child .movement-art{height:190px}
+  .process-step{grid-template-columns:52px 35px 125px 1fr;gap:10px}
+  .quiz-heading{position:static}
+}
+@media(max-width:560px){
+  .hero.section{width:calc(100% - 20px);padding:34px 20px 22px}
+  .hero-art{height:345px;transform:scale(.92);margin:-5px -15px}
+  .human-card{height:335px;width:260px}
+  .anatomy-figure{height:315px;width:230px}
+  .chip-top{right:-4px;top:20px}
+  .chip-bottom{left:-5px;bottom:18px}
+  .movement-grid{grid-template-columns:1fr}
+  .movement-card{display:grid;grid-template-columns:38% 1fr}
+  .movement-art,.movement-card:first-child .movement-art{height:160px}
+  .movement-text{min-height:0;padding:17px}
+  .process-panel{padding:20px 16px}
+  .process-step{grid-template-columns:44px 28px 1fr;gap:8px}
+  .process-step p{grid-column:3}
+  .process-step .step-icon{width:42px;height:42px}
+  .response-grid{grid-template-columns:1fr}
+  #hubungan .section-heading{padding-left:18px}
+}
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="ANATOMIAFS beranda">
+      <span class="brand-mark">A</span>
+      <span>ANATOMIAFS<small>EXPLORE THE HUMAN BODY</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#saraf">Sistem Saraf</a>
+      <a class="nav-link" href="#gerak">Sistem Gerak</a>
+      <a class="nav-link" href="#hubungan">Hubungan</a>
+      <a class="nav-link nav-quiz" href="#quiz">Quiz <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> EXPLORE THE HUMAN BODY</div>
+        <h1>Kenali cara<br>tubuh <span>kita bekerja.</span></h1>
+        <p class="hero-desc">Jelajahi sistem saraf dan sistem gerak manusia, lalu pahami bagaimana keduanya bekerja sama dalam aktivitas sehari-hari.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#saraf">Mulai belajar <span>→</span></a>
+          <a class="btn btn-quiet" href="#hubungan">Lihat cara kerja <span>↗</span></a>
+        </div>
+        <div class="hero-meta"><span class="meta-icon">◉</span> Learn • Understand • Explore</div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="human-card">
+          <div class="human-label label-brain"><i></i> SISTEM SARAF</div>
+          <svg class="human-figure anatomy-figure" viewBox="0 0 340 470" role="img" aria-label="Ilustrasi anatomi manusia dengan otak, tulang belakang, tulang rusuk, panggul, dan otot">
+  <defs>
+    <linearGradient id="skinTone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f4c9b7"/><stop offset="1" stop-color="#d58f87"/>
+    </linearGradient>
+    <linearGradient id="muscleTone" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#e88b79"/><stop offset="1" stop-color="#b94f68"/>
+    </linearGradient>
+    <linearGradient id="boneTone" x1="0" y1="0" x2="0.8" y2="1">
+      <stop stop-color="#fff5dc"/><stop offset="1" stop-color="#d9c5a8"/>
+    </linearGradient>
+    <filter id="softShadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#54356f" flood-opacity=".16"/></filter>
+  </defs>
+  <!-- shoulders, arms and torso -->
+  <g filter="url(#softShadow)">
+    <path d="M137 105 Q105 105 83 126 L52 185 Q45 198 55 207 Q66 215 75 201 L106 158 L98 237 Q94 258 112 276 L120 360 L145 360 L151 277 L160 277 L166 360 L191 360 L198 276 Q216 258 211 237 L203 158 L235 201 Q245 215 256 207 Q266 198 259 185 L228 126 Q207 105 174 105Z" fill="url(#skinTone)" opacity=".45" stroke="#b96f78" stroke-width="2"/>
+    <path d="M135 103 Q112 113 111 146 L120 223 Q127 248 153 253 Q179 248 187 223 L196 146 Q194 113 174 103Z" fill="url(#muscleTone)" opacity=".92"/>
+    <path d="M130 116 Q117 137 126 168 L145 185 L151 139Z M178 116 Q193 137 184 168 L165 185 L159 139Z" fill="#f3a08a" opacity=".8"/>
+    <path d="M126 185 Q143 194 153 215 Q139 230 122 222Z M180 185 Q163 194 153 215 Q167 230 184 222Z" fill="#a94462" opacity=".55"/>
+    <!-- pelvis -->
+    <path d="M119 246 Q135 233 153 247 Q171 233 188 246 L198 274 Q181 294 153 293 Q125 294 108 274Z" fill="url(#boneTone)" stroke="#bca88d" stroke-width="2"/>
+    <!-- rib cage -->
+    <g fill="none" stroke="url(#boneTone)" stroke-width="6" stroke-linecap="round">
+      <path d="M151 137 Q123 123 116 143 Q119 157 151 160"/>
+      <path d="M155 137 Q183 123 190 143 Q187 157 155 160"/>
+      <path d="M151 154 Q119 145 115 165 Q121 179 151 179"/>
+      <path d="M155 154 Q187 145 191 165 Q185 179 155 179"/>
+      <path d="M151 174 Q121 168 121 187 Q129 200 151 198"/>
+      <path d="M155 174 Q185 168 185 187 Q177 200 155 198"/>
+      <path d="M151 194 Q129 190 132 207 Q139 216 151 214"/>
+      <path d="M155 194 Q177 190 174 207 Q167 216 155 214"/>
+    </g>
+    <!-- spine -->
+    <path d="M153 104 L153 255" stroke="#f8e7c9" stroke-width="7" stroke-linecap="round"/>
+    <g fill="#fff1d8" stroke="#bca88d" stroke-width="1">
+      <rect x="147" y="111" width="12" height="8" rx="3"/><rect x="147" y="124" width="12" height="8" rx="3"/>
+      <rect x="147" y="137" width="12" height="8" rx="3"/><rect x="147" y="150" width="12" height="8" rx="3"/>
+      <rect x="147" y="163" width="12" height="8" rx="3"/><rect x="147" y="176" width="12" height="8" rx="3"/>
+      <rect x="147" y="189" width="12" height="8" rx="3"/><rect x="147" y="202" width="12" height="8" rx="3"/>
+      <rect x="147" y="215" width="12" height="8" rx="3"/><rect x="147" y="228" width="12" height="8" rx="3"/>
+    </g>
+    <!-- upper legs -->
+    <path d="M126 286 L119 374 Q117 389 130 390 Q142 391 144 377 L153 300Z" fill="url(#muscleTone)" stroke="#a94f68" stroke-width="2"/>
+    <path d="M180 286 L187 374 Q189 389 176 390 Q164 391 162 377 L153 300Z" fill="url(#muscleTone)" stroke="#a94f68" stroke-width="2"/>
+  </g>
+  <!-- head and brain -->
+  <path d="M132 38 Q132 12 154 12 Q178 12 178 39 L175 82 Q171 101 154 103 Q137 101 133 82Z" fill="url(#skinTone)" stroke="#b96f78" stroke-width="2"/>
+  <path d="M142 31 Q130 21 140 13 Q147 4 155 13 Q166 4 173 16 Q184 25 173 35 Q180 48 165 52 Q153 60 144 49 Q130 47 142 31Z" fill="#8e62cf" stroke="#6841a8" stroke-width="2"/>
+  <path d="M154 15 Q151 29 160 34 M140 25 Q151 22 154 33 M169 18 Q161 23 162 34 M145 43 Q154 38 162 46" fill="none" stroke="#d9c4ff" stroke-width="2" stroke-linecap="round"/>
+  <!-- nerves -->
+  <g fill="none" stroke="#7650c8" stroke-width="3" stroke-linecap="round">
+    <path d="M154 53 L154 109 L154 249"/>
+    <path d="M154 124 L124 148 L92 190"/>
+    <path d="M154 124 L184 148 L216 190"/>
+    <path d="M154 209 L132 253 L130 326"/>
+    <path d="M154 209 L176 253 L179 326"/>
+  </g>
+  <g fill="#f08a52" stroke="#fff4e9" stroke-width="2">
+    <circle cx="154" cy="124" r="5"/><circle cx="124" cy="148" r="4"/><circle cx="184" cy="148" r="4"/>
+    <circle cx="92" cy="190" r="4"/><circle cx="216" cy="190" r="4"/>
+  </g>
+  <!-- tiny callout lines -->
+  <g fill="none" stroke="#7650c8" stroke-width="1.5" stroke-dasharray="3 4" opacity=".75">
+    <path d="M178 29 L226 17 L251 17"/><path d="M191 167 L235 150 L263 150"/><path d="M128 307 L83 327 L55 327"/>
+  </g>
+  <g fill="#7650c8" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1">
+    <text x="255" y="20">OTAK</text><text x="267" y="153">RUSUK</text><text x="12" y="330">SARAF</text>
+  </g>
+</svg>
+          <div class="human-label label-muscle"><i></i> SISTEM GERAK</div>
+          <div class="art-caption">Tubuh manusia bekerja sebagai satu kesatuan.</div>
+        </div>
+        <div class="float-chip chip-top"><span>01</span> Saraf mengirim informasi</div>
+        <div class="float-chip chip-bottom"><span>02</span> Otot menghasilkan gerakan</div>
+      </div>
+    </section>
+
+    <section class="intro-strip">
+      <div><span class="strip-number">01</span><span><b>Pelajari</b><small>Kenali bagian tubuh</small></span></div>
+      <div><span class="strip-number">02</span><span><b>Pahami</b><small>Lihat bagaimana prosesnya</small></span></div>
+      <div><span class="strip-number">03</span><span><b>Uji diri</b><small>Coba kuis singkat</small></span></div>
+    </section>
+
+    <section class="content-section section" id="saraf">
+      <div class="section-heading">
+        <div><div class="eyebrow">BAGIAN 01 / SISTEM SARAF</div><h2>Pusat kendali<br><span>tubuh manusia.</span></h2></div>
+        <p>Sistem saraf menerima rangsangan, mengolah informasi, dan membantu tubuh menghasilkan respons.</p>
+      </div>
+      <div class="nervous-layout">
+        <div class="nervous-visual">
+          <div class="visual-tag">NERVOUS SYSTEM</div>
+          <div class="brain-illustration">🧠</div>
+          <div class="neuron-line line-a"></div><div class="neuron-line line-b"></div>
+          <div class="visual-note"><span class="note-dot"></span> Otak • Sumsum tulang belakang • Saraf tepi</div>
+        </div>
+        <div class="info-list">
+          <article class="info-card"><span class="info-index">01</span><div><h3>Otak</h3><p>Pusat pengolahan informasi dan koordinasi tubuh.</p></div><span class="info-symbol">⌁</span></article>
+          <article class="info-card"><span class="info-index">02</span><div><h3>Sumsum tulang belakang</h3><p>Jalur penghantar impuls saraf dan pusat refleks tertentu.</p></div><span class="info-symbol">↕</span></article>
+          <article class="info-card"><span class="info-index">03</span><div><h3>Saraf tepi</h3><p>Menghubungkan sistem saraf pusat dengan bagian tubuh.</p></div><span class="info-symbol">✳</span></article>
+        </div>
+      </div>
+      <div class="fact-banner"><span class="fact-icon">i</span><p><b>Intinya:</b> sistem saraf membantu tubuh mengetahui apa yang terjadi di sekitarnya dan menentukan respons yang sesuai.</p></div>
+    </section>
+
+    <section class="movement-section" id="gerak">
+      <div class="section section-inner">
+        <div class="section-heading">
+          <div><div class="eyebrow">BAGIAN 02 / SISTEM GERAK</div><h2>Bergerak dengan<br><span>kerja sama.</span></h2></div>
+          <p>Sistem gerak terdiri dari tulang, sendi, dan otot. Ketiganya bekerja sama agar tubuh dapat bergerak.</p>
+        </div>
+        <div class="movement-grid">
+          <article class="movement-card">
+            <div class="movement-art bone-art"><span>✣</span><small>SUPPORT</small></div>
+            <div class="movement-text"><span class="card-kicker">01 / PENOPANG</span><h3>Tulang</h3><p>Menopang tubuh dan melindungi organ.</p></div>
+          </article>
+          <article class="movement-card">
+            <div class="movement-art joint-art"><span>◉</span><small>CONNECTION</small></div>
+            <div class="movement-text"><span class="card-kicker">02 / PENGHUBUNG</span><h3>Sendi</h3><p>Menghubungkan tulang dan memungkinkan gerakan tertentu.</p></div>
+          </article>
+          <article class="movement-card">
+            <div class="movement-art muscle-art"><span>〰</span><small>MOVEMENT</small></div>
+            <div class="movement-text"><span class="card-kicker">03 / PENGGERAK</span><h3>Otot</h3><p>Berkontraksi dan relaksasi untuk menghasilkan gerakan.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section" id="hubungan">
+      <div class="section-heading">
+        <div><div class="eyebrow">BAGIAN 03 / HUBUNGAN KEDUANYA</div><h2>Dari rangsangan<br><span>menjadi gerakan.</span></h2></div>
+        <p>Sistem saraf mengolah informasi, kemudian efektor seperti otot menghasilkan respons.</p>
+      </div>
+      <div class="process-panel">
+        <div class="process-top"><div><span class="card-kicker">BAGAIMANA PROSESNYA?</span><h3>Alur respons tubuh</h3></div><span class="process-badge">4 TAHAP</span></div>
+        <div class="process-flow">
+          <div class="process-step"><div class="step-icon">✦</div><span class="step-no">01</span><h4>Rangsangan</h4><p>Ada perubahan atau sesuatu yang diterima tubuh.</p></div>
+          <span class="flow-arrow">→</span>
+          <div class="process-step"><div class="step-icon">◉</div><span class="step-no">02</span><h4>Reseptor</h4><p>Menerima rangsangan dari lingkungan.</p></div>
+          <span class="flow-arrow">→</span>
+          <div class="process-step"><div class="step-icon">⌁</div><span class="step-no">03</span><h4>Sistem saraf</h4><p>Meneruskan dan memproses informasi.</p></div>
+          <span class="flow-arrow">→</span>
+          <div class="process-step"><div class="step-icon">↗</div><span class="step-no">04</span><h4>Efektor</h4><p>Otot menghasilkan respons atau gerakan.</p></div>
+        </div>
+      </div>
+      <div class="response-grid">
+        <article class="response-card conscious"><div class="response-label">JENIS 01</div><div class="response-icon">✋</div><h3>Gerak sadar</h3><p>Gerakan yang dilakukan dengan kesadaran dan melibatkan perintah dari otak.</p><div class="example"><b>Contoh</b><span>Mengambil buku menggunakan tangan.</span></div></article>
+        <article class="response-card reflex"><div class="response-label">JENIS 02</div><div class="response-icon">⚡</div><h3>Gerak refleks</h3><p>Respons cepat terhadap rangsangan. Pada refleks tertentu, sumsum tulang belakang memproses respons tanpa menunggu perintah sadar dari otak.</p><div class="example"><b>Contoh</b><span>Menarik tangan saat menyentuh benda panas.</span></div></article>
+      </div>
+      <div class="safety-note"><span>!</span><p><b>Catatan keselamatan:</b> jangan mencoba gerak refleks menggunakan benda panas. Gunakan ilustrasi atau simulasi yang aman.</p></div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="section quiz-inner">
+        <div class="quiz-heading"><div class="eyebrow">UJI PEMAHAMAN</div><h2>Sudah paham<br><span>materinya?</span></h2><p>Jawab lima pertanyaan singkat untuk menguji pemahamanmu.</p></div>
+        <div class="quiz-box" id="quizBox">
+          <div class="quiz-progress"><span id="questionCounter">SOAL 1 DARI 5</span><span id="scoreCounter">SKOR 0</span><div class="progress-track"><span id="progressBar"></span></div></div>
+          <h3 id="questionText">Apa fungsi utama otak dalam sistem saraf?</h3>
+          <div class="answer-list" id="answerList"></div>
+          <div class="quiz-bottom"><span id="feedback" aria-live="polite">Pilih satu jawaban yang menurutmu benar.</span><button class="btn btn-primary" id="nextButton" disabled>Selanjutnya <span>→</span></button></div>
+        </div>
+        <div class="quiz-result" id="quizResult" hidden>
+          <div class="result-icon">✓</div><div class="eyebrow">KUIS SELESAI</div><h3 id="resultTitle">Kerja bagus!</h3><p id="resultText"></p><button class="btn btn-primary" id="restartButton">Ulangi kuis ↻</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">A</span><span>ANATOMIAFS<small>EXPLORE THE HUMAN BODY</small></span></a><p>Explore the Human Body · Proyek pembelajaran IPAS · SMK Raden Umar Said Kudus</p><a href="#home" class="back-top">Kembali ke atas ↑</a></footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const questions = [
+  {
+    question: 'Apa peran utama otak dalam sistem saraf?',
+    answers: [
+      'Menghubungkan tulang satu dengan lainnya',
+      'Mengolah informasi dan mengoordinasikan aktivitas tubuh',
+      'Menghasilkan gerakan melalui kontraksi',
+      'Membentuk sel-sel darah'
+    ],
+    correct: 1,
+    explanation: 'Tepat. Otak mengolah informasi dan mengoordinasikan berbagai aktivitas tubuh.'
+  },
+  {
+    question: 'Bagian sistem saraf yang menjadi jalur penghantar impuls sekaligus pusat refleks tertentu adalah ...',
+    answers: ['Saraf tepi', 'Otot rangka', 'Sumsum tulang belakang', 'Sendi'],
+    correct: 2,
+    explanation: 'Benar. Sumsum tulang belakang menghantarkan impuls dan memproses beberapa gerak refleks.'
+  },
+  {
+    question: 'Struktur yang menghubungkan tulang dengan tulang dan memungkinkan gerakan disebut ...',
+    answers: ['Otot', 'Reseptor', 'Saraf', 'Sendi'],
+    correct: 3,
+    explanation: 'Benar. Sendi merupakan tempat bertemunya dua tulang atau lebih.'
+  },
+  {
+    question: 'Otot dapat menggerakkan tulang karena otot mampu ...',
+    answers: ['Berkontraksi dan relaksasi', 'Mengolah rangsangan', 'Menghasilkan impuls saraf', 'Menyambungkan tulang'],
+    correct: 0,
+    explanation: 'Tepat. Otot berkontraksi dan relaksasi untuk menghasilkan tarikan pada tulang.'
+  },
+  {
+    question: 'Saat tangan spontan ditarik setelah menyentuh benda panas, respons tersebut disebut ...',
+    answers: ['Gerak sadar', 'Gerak refleks', 'Gerak pasif', 'Gerak sendi'],
+    correct: 1,
+    explanation: 'Benar. Menarik tangan dari benda panas adalah contoh gerak refleks yang cepat dan otomatis.'
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = null;
+let answered = false;
+
+const questionCounter = document.getElementById('questionCounter');
+const scoreCounter = document.getElementById('scoreCounter');
+const progressBar = document.getElementById('progressBar');
+const questionText = document.getElementById('questionText');
+const answerList = document.getElementById('answerList');
+const feedback = document.getElementById('feedback');
+const nextButton = document.getElementById('nextButton');
+const quizBox = document.getElementById('quizBox');
+const quizResult = document.getElementById('quizResult');
+
+function renderQuestion() {
+  const item = questions[currentQuestion];
+  selectedAnswer = null;
+  answered = false;
+  questionCounter.textContent = `SOAL ${currentQuestion + 1} DARI ${questions.length}`;
+  scoreCounter.textContent = `SKOR ${score}`;
+  progressBar.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+  questionText.textContent = item.question;
+  feedback.textContent = 'Pilih satu jawaban yang paling tepat.';
+  nextButton.disabled = true;
+  nextButton.innerHTML = currentQuestion === questions.length - 1 ? 'Lihat hasil <span>→</span>' : 'Selanjutnya <span>→</span>';
+  answerList.innerHTML = '';
+
+  item.answers.forEach((answer, index) => {
+    const button = document.createElement('button');
+    button.className = 'answer-option';
+    button.type = 'button';
+    button.textContent = `${String.fromCharCode(65 + index)}. ${answer}`;
+    button.addEventListener('click', () => selectAnswer(index));
+    answerList.appendChild(button);
+  });
+}
+
+function selectAnswer(index) {
+  if (answered) return;
+  selectedAnswer = index;
+  answered = true;
+  const item = questions[currentQuestion];
+  const options = [...answerList.children];
+
+  options.forEach((option, optionIndex) => {
+    option.disabled = true;
+    if (optionIndex === item.correct) option.classList.add('correct');
+    if (optionIndex === index && index !== item.correct) option.classList.add('wrong');
+    if (optionIndex === index) option.classList.add('selected');
+  });
+
+  if (index === item.correct) {
+    score++;
+    feedback.textContent = `Benar! ${item.explanation}`;
+  } else {
+    feedback.textContent = `Belum tepat. ${item.explanation}`;
+  }
+  scoreCounter.textContent = `SKOR ${score}`;
+  nextButton.disabled = false;
+}
+
+nextButton.addEventListener('click', () => {
+  if (!answered) return;
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+});
+
+function showResult() {
+  quizBox.hidden = true;
+  quizResult.hidden = false;
+  progressBar.style.width = '100%';
+  document.getElementById('resultTitle').textContent = score >= 4 ? 'Kerja bagus!' : 'Tetap semangat!';
+  document.getElementById('resultText').textContent = `Kamu menjawab ${score} dari ${questions.length} pertanyaan dengan benar. ${score === 5 ? 'Semua jawaban benar. Mantap!' : 'Coba pelajari lagi bagian yang belum kamu kuasai, lalu ulangi kuisnya.'}`;
+}
+
+document.getElementById('restartButton').addEventListener('click', () => {
+  currentQuestion = 0;
+  score = 0;
+  scoreCounter.textContent = 'SKOR 0';
+  quizResult.hidden = true;
+  quizBox.hidden = false;
+  renderQuestion();
+});
+
+renderQuestion();
+
+// Menandai menu sesuai bagian yang sedang terlihat.
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { rootMargin: '-35% 0px -55% 0px' });
+sections.forEach(section => observer.observe(section));
+
+</script>
+</body>
+</html>
